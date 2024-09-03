@@ -47,7 +47,7 @@ public class JobRolesStepDefinitions {
         String actualJobRole = nameWebElement.getText();
         Assertions.assertEquals(expectedJobRole, actualJobRole);
 
-        List<WebElement> bands = driver.findElements(By.xpath("//i[@class='fa-solid fa-signal']/.."));
+        List<WebElement> bands = driver.findElements(By.className("card-band-info"));
         WebElement bandWebElement = bands.get(2);
         String expectedBand = "Band: Architect";
         String actualBand = bandWebElement.getText();
@@ -60,15 +60,15 @@ public class JobRolesStepDefinitions {
         String actualDate = dateWebElement.getText();
         Assertions.assertEquals(expectedDate, actualDate);
 
-//        List<WebElement> capabilities = driver.findElements(By.id());
-//        WebElement capabilityWebElement = capabilities.get(2);
-//        String expectedCapability = "";
-//        String actualCapability = capabilityWebElement.getText();
-//        Assertions.assertEquals(expectedCapability,actualCapability);
+        List<WebElement> capabilities = driver.findElements(By.className("card-capability-info"));
+        WebElement capabilityWebElement = capabilities.get(2);
+        String expectedCapability = "Capability: delivery";
+        String actualCapability = capabilityWebElement.getText();
+        Assertions.assertEquals(expectedCapability,actualCapability);
 
-        List<WebElement> locationsWebElements = driver.findElements(By.className("fa-location-dot"));
+        List<WebElement> locationsWebElements = driver.findElements(By.className("card-location-info"));
         WebElement locationWebElement = locationsWebElements.get(2);
-        Assertions.assertEquals(" Buenos Aires", locationWebElement.getText());
+        Assertions.assertEquals("Buenos Aires", locationWebElement.getText());
 
         driver.quit();
     }

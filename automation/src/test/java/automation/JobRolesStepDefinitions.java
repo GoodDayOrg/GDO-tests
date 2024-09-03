@@ -31,7 +31,7 @@ public class JobRolesStepDefinitions {
     }
 
     @Then("List of 6 opened Job Roles are displayed")
-    public void listOfJobRolesAreDisplayed() throws InterruptedException {
+    public void listOfJobRolesAreDisplayed() {
 
         List<WebElement> roleNames = driver.findElements(By.className("card-role-name"));
         Assertions.assertEquals(6, roleNames.size());

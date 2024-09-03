@@ -30,8 +30,8 @@ public class JobRolesStepDefinitions {
         driver.get("http://localhost:3000/job-roles");
     }
 
-    @Then("List of 6 Job Roles with status OPEN are displayed")
-    public void listOfJobRolesWithStatusOPENAreDisplayed() throws InterruptedException {
+    @Then("List of 6 opened Job Roles are displayed")
+    public void listOfJobRolesAreDisplayed() throws InterruptedException {
 
         List<WebElement> roleNames = driver.findElements(By.className("card-role-name"));
         Assertions.assertEquals(6, roleNames.size());

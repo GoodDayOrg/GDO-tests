@@ -70,7 +70,7 @@ public class JobRolesStepDefinitions {
         WebElement locationWebElement = locationsWebElements.get(2);
         Assertions.assertEquals(" Buenos Aires", locationWebElement.getText());
 
-        //driver.quit();
+        driver.quit();
     }
 
 

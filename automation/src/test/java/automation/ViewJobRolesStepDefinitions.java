@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.List;
 
-public class US001ViewJobRolesStepDefinitions {
+public class ViewJobRolesStepDefinitions {
     WebDriver driver;
 
     @Given("Job Roles are in the database: 16 of 20 have status \"open\"")

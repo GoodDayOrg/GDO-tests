@@ -11,13 +11,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.List;
 
-public class JobRolesStepDefinitions {
+public class ViewJobRolesStepDefinitions {
     WebDriver driver;
 
-    @Given("Job Roles are in the database: 6 of 7 have status \"open\"")
+    @Given("Job Roles are in the database: 16 of 20 have status \"open\"")
     public void jobRolesAreInTheDatabase() {
-
-
     }
 
     @When("An applicant opens \"Good Day Org - Job roles list\"  website")
@@ -30,11 +28,11 @@ public class JobRolesStepDefinitions {
         driver.get("http://localhost:3000/job-roles");
     }
 
-    @Then("List of 6 opened Job Roles are displayed")
+    @Then("List of 16 opened Job Roles are displayed")
     public void listOfJobRolesAreDisplayed() {
 
         List<WebElement> roleNames = driver.findElements(By.className("card-role-name"));
-        Assertions.assertEquals(6, roleNames.size());
+        Assertions.assertEquals(16, roleNames.size());
     }
 
     @Then("Job role has fields displayed: Name, Location, Band, Capability, Date")
@@ -43,32 +41,32 @@ public class JobRolesStepDefinitions {
 
         List<WebElement> roleNames = driver.findElements(By.className("card-role-name"));
         WebElement nameWebElement = roleNames.get(2);
-        String expectedJobRole = "delivery_junior";
+        String expectedJobRole = "Test Automation Engineer";
         String actualJobRole = nameWebElement.getText();
         Assertions.assertEquals(expectedJobRole, actualJobRole);
 
-        List<WebElement> bands = driver.findElements(By.xpath("//i[@class='fa-solid fa-signal']/.."));
+        List<WebElement> bands = driver.findElements(By.className("card-band-info"));
         WebElement bandWebElement = bands.get(2);
-        String expectedBand = "Band: Architect";
+        String expectedBand = "Band: Associate";
         String actualBand = bandWebElement.getText();
         Assertions.assertEquals(expectedBand, actualBand);
 
 
         List<WebElement> closingDates = driver.findElements(By.className("card-closing-date"));
         WebElement dateWebElement = closingDates.get(2);
-        String expectedDate = "Valid: 10.10.2024";
+        String expectedDate = "Valid: 07.07.2024";
         String actualDate = dateWebElement.getText();
         Assertions.assertEquals(expectedDate, actualDate);
 
-//        List<WebElement> capabilities = driver.findElements(By.id());
-//        WebElement capabilityWebElement = capabilities.get(2);
-//        String expectedCapability = "";
-//        String actualCapability = capabilityWebElement.getText();
-//        Assertions.assertEquals(expectedCapability,actualCapability);
+        List<WebElement> capabilities = driver.findElements(By.className("card-capability-info"));
+        WebElement capabilityWebElement = capabilities.get(2);
+        String expectedCapability = "Capability: Cyber Security";
+        String actualCapability = capabilityWebElement.getText();
+        Assertions.assertEquals(expectedCapability,actualCapability);
 
-        List<WebElement> locationsWebElements = driver.findElements(By.className("fa-location-dot"));
+        List<WebElement> locationsWebElements = driver.findElements(By.className("card-location-info"));
         WebElement locationWebElement = locationsWebElements.get(2);
-        Assertions.assertEquals(" Buenos Aires", locationWebElement.getText());
+        Assertions.assertEquals("Indianapolis", locationWebElement.getText());
 
         driver.quit();
     }

@@ -3,15 +3,14 @@ package automation;
 import io.cucumber.java.en.*;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 
 import java.util.List;
 
-public class ViewJobRolesStepDefinitions extends SuperclassStepDefinitions {
+import static automation.BrowserManager.driver;
+
+public class ViewJobRolesStepDefinitions {
 
     @Given("Job Roles are in the database: 16 of 20 have status \"open\"")
     public void jobRolesAreInTheDatabase() {
@@ -57,9 +56,5 @@ public class ViewJobRolesStepDefinitions extends SuperclassStepDefinitions {
         List<WebElement> locationsWebElements = driver.findElements(By.className("card-location-info"));
         WebElement locationWebElement = locationsWebElements.get(2);
         Assertions.assertEquals("Indianapolis", locationWebElement.getText());
-
-        driver.quit();
     }
-
-
 }

@@ -11,22 +11,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.List;
 
-public class ViewJobRolesStepDefinitions {
-    WebDriver driver;
+public class ViewJobRolesStepDefinitions extends SuperclassStepDefinitions {
 
     @Given("Job Roles are in the database: 16 of 20 have status \"open\"")
     public void jobRolesAreInTheDatabase() {
     }
 
-    @When("An applicant opens \"Good Day Org - Job roles list\"  website")
-    public void anApplicantOpensUrl() {
-
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--disable-search-engine-choice-screen");
-
-        driver = new ChromeDriver(chromeOptions);
-        driver.get("http://localhost:3000/job-roles");
-    }
 
     @Then("List of 16 opened Job Roles are displayed")
     public void listOfJobRolesAreDisplayed() {
@@ -47,7 +37,7 @@ public class ViewJobRolesStepDefinitions {
 
         List<WebElement> bands = driver.findElements(By.className("card-band-info"));
         WebElement bandWebElement = bands.get(2);
-        String expectedBand = "Band: Associate";
+        String expectedBand = "Band: Senior Associate";
         String actualBand = bandWebElement.getText();
         Assertions.assertEquals(expectedBand, actualBand);
 
@@ -60,7 +50,7 @@ public class ViewJobRolesStepDefinitions {
 
         List<WebElement> capabilities = driver.findElements(By.className("card-capability-info"));
         WebElement capabilityWebElement = capabilities.get(2);
-        String expectedCapability = "Capability: Cyber Security";
+        String expectedCapability = "Capability: Data & AI";
         String actualCapability = capabilityWebElement.getText();
         Assertions.assertEquals(expectedCapability,actualCapability);
 

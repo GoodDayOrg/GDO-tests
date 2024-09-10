@@ -6,8 +6,11 @@ import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
-public class ViewJobRoleDetailsStepDefinitions extends SuperclassStepDefinitions {
+import static automation.BrowserManager.driver;
+
+public class ViewJobRoleDetailsStepDefinitions {
     @When("User clicks on a role")
     public void userClicksOnARole() {
         driver.findElements(By.className("card-role-name")).get(2).click();

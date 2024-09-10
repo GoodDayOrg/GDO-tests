@@ -2,9 +2,9 @@ Feature: US002 View Job Role details
   @US002
   Scenario: US002 View job role information
     Given Job Roles are in the database: 16 of 20 have status "open"
-    When An applicant opens Good Day Org website
-    And  Applicant clicks "Join us!" button
-    And  Applicant signs in
+    When The Good Day Org website is opened
+    And Click "Join us!" button
+    And Applicant logs in
 
     Then List of 16 opened Job Roles are displayed
     When User clicks on a role

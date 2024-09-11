@@ -12,7 +12,7 @@ Feature: US002 View Job Role details
     And Job role has Name: "Test Automation Engineer"
     And Job role has Description
     And Job role has Responsibilities
-    And Job role has SharePoint link: "sharepoint link"
+    And Job role has SharePoint link: "http://goodreads.com/vestibulum.xml"
     And Job role has Location: "Location: Indianapolis"
     And Job role has Capability: "Capability: Data & AI"
     And Job role has Band: "Band: Senior Associate"

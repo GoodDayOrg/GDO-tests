@@ -20,18 +20,14 @@ public class LoginStepDefinitions {
 
     @When("The Good Day Org website is opened")
     public void anApplicantOpensUrl() {
-
-
         driver.get("http://localhost:3000");
         //driver.get("https://mujtapvdt3.eu-west-1.awsapprunner.com/job-roles");
-
     }
 
     @And("Click \"Join us!\" button")
     public void clickJoinUs() {
        WebElement joinUsButton = driver.findElement(By.linkText("Join us!"));
         joinUsButton.click();
-
     }
 
     @And("Applicant logs in")
@@ -110,12 +106,11 @@ public class LoginStepDefinitions {
     public void emptyLogInAndCorrectPasswordForUser() {
 
         WebElement emailField = driver.findElement(By.id("email"));
-        emailField.sendKeys("");
+        emailField.sendKeys("admin@example.com");
         WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("user");
+        passwordField.sendKeys("admin");
 
         driver.findElement(By.id("submit")).click();
-
     }
 
     @And("Admin enters empty login and correct password")
@@ -182,16 +177,14 @@ public class LoginStepDefinitions {
     public void applicantLogsOut() {
 
         driver.manage().timeouts().implicitlyWait(Duration.of(5, ChronoUnit.SECONDS));
-        driver.findElement(By.id("logout")).click();
-
+        driver.findElement(By.linkText("Logout")).click();
     }
 
     @And("Admin logs out")
     public void adminLogsOut() throws InterruptedException {
 
         driver.manage().timeouts().implicitlyWait(Duration.of(5, ChronoUnit.SECONDS));
-        driver.findElement(By.id("logout")).click();
-
+        driver.findElement(By.linkText("Logout")).click();
     }
 
     @Then("Account name: User")
@@ -220,7 +213,7 @@ public class LoginStepDefinitions {
     public void messageFailedToLogIn() {
 
         driver.manage().timeouts().implicitlyWait(Duration.of(5, ChronoUnit.SECONDS));
-        WebElement messageName = driver.findElement(By.id("login-error"));
+        WebElement messageName = driver.findElement(By.id("login-error-content"));
         String expectedMessage = "Failed to sign in";
         String actualMessage = messageName.getText();
         Assertions.assertEquals(expectedMessage, actualMessage);

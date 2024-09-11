@@ -1,4 +1,5 @@
 package automation;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ public class BrowserManager {
         chromeOptions.addArguments("--disable-search-engine-choice-screen");
         driver = new ChromeDriver(chromeOptions);
     }
+
     @After
     public void closeBrowser(){
         driver.quit();

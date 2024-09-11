@@ -3,15 +3,13 @@ package automation;
 import io.cucumber.java.en.*;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 
 import static automation.BrowserManager.driver;
 
 import java.util.List;
+
+import static automation.BrowserManager.driver;
 
 public class ViewJobRolesStepDefinitions {
 
@@ -59,8 +57,5 @@ public class ViewJobRolesStepDefinitions {
         List<WebElement> locationsWebElements = driver.findElements(By.className("card-location-info"));
         WebElement locationWebElement = locationsWebElements.get(2);
         Assertions.assertEquals("Indianapolis", locationWebElement.getText());
-
-        driver.quit();
     }
-
 }

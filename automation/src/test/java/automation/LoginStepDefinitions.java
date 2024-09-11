@@ -24,9 +24,9 @@ public class LoginStepDefinitions {
     public void applicantSignsIn() {
 
         WebElement emailField = driver.findElement(By.id("email"));
-        emailField.sendKeys("user");
+        emailField.sendKeys("admin@example.com");
         WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("user");
+        passwordField.sendKeys("admin");
 
         driver.findElement(By.id("submit")).click();
     }

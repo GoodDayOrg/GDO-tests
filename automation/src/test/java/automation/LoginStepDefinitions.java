@@ -177,16 +177,14 @@ public class LoginStepDefinitions {
     public void applicantLogsOut() {
 
         driver.manage().timeouts().implicitlyWait(Duration.of(5, ChronoUnit.SECONDS));
-        driver.findElement(By.id("logout")).click();
-
+        driver.findElement(By.linkText("Logout")).click();
     }
 
     @And("Admin logs out")
     public void adminLogsOut() throws InterruptedException {
 
         driver.manage().timeouts().implicitlyWait(Duration.of(5, ChronoUnit.SECONDS));
-        driver.findElement(By.id("logout")).click();
-
+        driver.findElement(By.linkText("Logout")).click();
     }
 
     @Then("Account name: User")
@@ -215,7 +213,7 @@ public class LoginStepDefinitions {
     public void messageFailedToLogIn() {
 
         driver.manage().timeouts().implicitlyWait(Duration.of(5, ChronoUnit.SECONDS));
-        WebElement messageName = driver.findElement(By.id("login-error"));
+        WebElement messageName = driver.findElement(By.id("login-error-content"));
         String expectedMessage = "Failed to sign in";
         String actualMessage = messageName.getText();
         Assertions.assertEquals(expectedMessage, actualMessage);
